@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import userRouter from "./routes/userRoute.js";
 import postRouter from "./routes/postRoute.js";
+import commentRouter from "./routes/commentRoute.js";
 
 dotenv.config();
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/user", userRouter);
 app.use("/api/post", postRouter);
+app.use("/api/comment", commentRouter);
 
 app.get("/", (req, res) => {
   res.send({ message: "hello" });
